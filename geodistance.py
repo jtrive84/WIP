@@ -8,13 +8,22 @@ import datetime
 
 USERNAME = "cac9159"
 PASSWORD = "VM8925xh"
+API_KEY  = "AIzaSyAD-B7TcHQh6-AkwpqRknCLeLUAdEpcVzc"
 
-def getdistance(geoloc1:tuple, geoloc2:tuple, R=6367):
+proxies = {
+    "http" :"http://{USERNAME}:{PASSWORD}@proxy.cna.com:8080/",
+    "https":f"https://{USERNAME}:{PASSWORD}@proxy.cna.com:8080/",
+    }
+
+
+def get_haver_distance(geoloc1:tuple, geoloc2:tuple, R=6367):
     """
     Compute distance between geographic coordinate pairs.
     :param geoloc1: (lat1, lon1) of first geolocation
     :param geoloc2: (lat2, lon2) of second geolocation
     :param R: Radius of Earth (est.)
+    1609.34m per mile
+
     """
     # Convert degress to radians then compute differences.
     rlat1, rlon1 = [i * math.pi / 180 for i in geoloc1]
@@ -34,15 +43,8 @@ def getdistance(geoloc1:tuple, geoloc2:tuple, R=6367):
 ```
 
 
-# 1609.34m per mile
 
-# Replace CID and password.
-proxies = {
-    "http" :f"http://{USERNAME}:{PASSWORD}@proxy.cna.com:8080/",
-    "https":f"https://{USERNAME}:{PASSWORD}@proxy.cna.com:8080/",
-    }
 
-API_KEY = "AIzaSyAD-B7TcHQh6-AkwpqRknCLeLUAdEpcVzc"
 coords  = "&origins=41.8781,87.6298|40.7128,74.0060"
 url     = f"https://maps.googleapis.com/maps/api/distancematrix/json?origins=41.8781,87.6298&destinations=40.7128,74.0060&key=AIzaSyAD-B7TcHQh6-AkwpqRknCLeLUAdEpcVzc"
 resp    = requests.get(url, proxies=proxies).json()

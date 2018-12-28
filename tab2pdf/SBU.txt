@@ -1,0 +1,9 @@
+GROUPS = [
+    "CNA COMMERCIAL", "CNA SPECIALTY", "CI Select Risk", "Financial Institutions PL",
+    "Healthcare Affinity", "Healthcare_SBU", "Home Foreign", "Large Casualty",
+    "Large Property", "Management Liability", "Management Liability Affinity",
+    "Middle Market", "Misc Professional & CYBER", "Monoline Equipment Breakdown",
+    "Monoline Inland Marine SBU", "Monoline Umbrella & GPE", "Ocean Marine_SBU",
+    "Other Commercial & Runoff_", "Prof Services Affinity", "Select_Risk Property",
+    "Small Business"
+    ]
